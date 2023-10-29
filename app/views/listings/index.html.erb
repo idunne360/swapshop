@@ -6,6 +6,7 @@
   <%= text_field_tag "title_search", nil, maxlength: 10 %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
   <%= link_to "Reset", listings_path, class: "btn btn-dark" %>
+  <%= google_sign_in_button 'Sign in with my Google account', proceed_to: create_login_url %>
   <% end %> 
 </div>
 

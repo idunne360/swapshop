@@ -48,6 +48,9 @@ gem "sassc-rails"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 
+# Allow log in with google account
+gem "google_sign_in"
+
 group :test do
   gem 'cucumber-rails', require: false
   # database_cleaner is not required, but highly recommended

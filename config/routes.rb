@@ -7,4 +7,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  get 'login', to: 'logins#new'
+  get 'login/create', to: 'logins#create', as: :create_login
 end
