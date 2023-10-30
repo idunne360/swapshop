@@ -13,6 +13,7 @@
       <dd> <%= number_to_currency(@listing.price) %>
   </dl>
 
-  <%= link_to "Back to listings list", listings_path, class: "btn btn-primary" %>
-
+  <%= link_to "Edit listing", edit_listing_path(@listing), class: "btn btn-info" %>
+  <%= button_to "Delete listing", listings_path(@listing), method: :delete, class: "btn btn-warning" %>
+  <%= link_to "Back to index", listings_path, class: "btn btn-primary" %>
 </section>
