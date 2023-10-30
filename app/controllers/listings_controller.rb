@@ -12,4 +12,25 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
   end
 
+  def edit
+    @listing = Listing.find(params[:id])
+  end
+
+  def update
+    @listing = Listing.find(params[:id])
+    if @listing.update(create_update_params)
+      flash[:notice] = "#{@listing.title} successfully edited"
+      redirect_to listing_path(@listing) and return
+    else 
+      flash[:alert] = "Edit Failed"
+    end
+  end
+
+  def destroy
+    @listing = Listing.find(params[:id])
+    @listing.destroy
+    flash[:alert] = "Listing #{@listing.title} deleted."
+    redirect_to listing_path
+  end
+
 end
