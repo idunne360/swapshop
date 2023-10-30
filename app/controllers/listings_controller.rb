@@ -12,6 +12,22 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
   end
 
+  def new
+    @listing = Listing.new
+  end
+
+  def create
+    @listing = Listing.new(params.require(:listing).permit(:title, :description, :price, :date)) #add poster once usernames implemented
+    if @listing.save
+      flash[:notice] = "#{@listing.title} successfully posted"
+      redirect_to listings_path and return
+    else
+      flash[:alert] = "Creation failed"
+      render 'new', status: :unprocessable_entity
+    end
+  end
+
+
   def edit
     @listing = Listing.find(params[:id])
   end
@@ -23,6 +39,7 @@ class ListingsController < ApplicationController
       redirect_to listing_path(@listing) and return
     else 
       flash[:alert] = "Edit Failed"
+      render 'edit', status: :unprocessable_entity
     end
   end
 
@@ -30,12 +47,12 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
     @listing.destroy
     flash[:alert] = "Listing #{@listing.title} deleted."
-    redirect_to listing_path
+    redirect_to listings_path
   end
 
   private
   def create_update_params
-    params.require(:book).permit(:title, :price, :description, :date, :poster)
+    params.require(:listing).permit(:title, :price, :description, :date, :poster)
   end
 
 end

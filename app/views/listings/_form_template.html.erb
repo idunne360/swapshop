@@ -1,0 +1,28 @@
+<% if @listing.errors.any? %>
+<div id="error_explanation">
+  <h2>
+    <%= pluralize(@listing.errors.count, "error") %> prevented
+    this listing from being saved:
+  </h2>
+  <ul>
+    <% @listing.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<%= listing_form.label :title %>
+<%= listing_form.text_field :title %>
+<br>
+
+<%= listing_form.label :description %>
+<%= listing_form.text_field :description %>
+<br>
+
+<%= listing_form.label :price %>
+<%= listing_form.number_field :price %>
+<br>
+
+<%# listing_form.hidden_field :poster, value: current_user.username %>
+<%= listing_form.hidden_field :date, value: Time.now %>
+<%= listing_form.submit %>
