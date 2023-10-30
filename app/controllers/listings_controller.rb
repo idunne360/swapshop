@@ -12,4 +12,19 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
   end
 
+  def new
+    @listing = Listing.new
+  end
+
+  def create
+    @listing = Listing.new(params.require(:listing).permit(:title, :description, :price, :date)) #add poster once usernames implemented
+    if @listing.save
+      flash[:notice] = "#{@listing.title} successfully posted"
+      redirect_to listings_path and return
+    else
+      flash[:alert] = "Creation failed"
+      render 'new', status: :unprocessable_entity
+    end
+  end
+
 end

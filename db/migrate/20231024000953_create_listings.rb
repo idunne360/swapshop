@@ -5,6 +5,7 @@ class CreateListings < ActiveRecord::Migration[7.0]
       t.text :description
       t.decimal :price, precision: 10, scale: 2
       t.datetime :date
+      t.string :poster
 
       t.timestamps
     end
