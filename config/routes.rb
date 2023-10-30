@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
 
-  resources :listings
-  root to: "listings#index"
+  resources :listings, :index, :show
+  root "listings#index"
 
   # Defines the root path route ("/")
   # root "articles#index"

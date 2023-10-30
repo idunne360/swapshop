@@ -4,8 +4,9 @@ class ListingsController < ApplicationController
     @listings = if params[:title_search]
       Listing.title_search(searchfield)
     else
-      Listing.all.order(:title) # order(title: :desc)
+      Listing.all.order(params[:sort]) # order(title: :desc)
     end
+    
   end
 
   def show

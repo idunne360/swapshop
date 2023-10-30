@@ -1,1 +1,18 @@
 <%= @listing.inspect %>
+<section id="main" class="container">
+
+  <p class="lead">Listing Details for <%= @listing.title %></p>
+  <dl>
+    <dt>Title
+      <dd> <%= @listing.title %>
+    <dt>Description
+      <dd> <%= @listing.description %>
+    <dt>Date Posted
+      <dd> <%= @listing.date %>
+    <dt>Price
+      <dd> <%= number_to_currency(@listing.price) %>
+  </dl>
+
+  <%= link_to "Back to listings list", listings_path, class: "btn btn-primary" %>
+
+</section>
