@@ -33,4 +33,9 @@ class ListingsController < ApplicationController
     redirect_to listing_path
   end
 
+  private
+  def create_update_params
+    params.require(:book).permit(:title, :price, :description, :date, :poster)
+  end
+
 end
