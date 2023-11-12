@@ -10,13 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_02_172516) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_12_212525) do
+  create_table "comment_authors", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_comment_authors_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "comment"
+    t.decimal "offer", precision: 10, scale: 2
+    t.integer "listing_id", null: false
+    t.integer "comment_author_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_author_id"], name: "index_comments_on_comment_author_id"
+    t.index ["listing_id"], name: "index_comments_on_listing_id"
+  end
+
   create_table "listings", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.decimal "price", precision: 10, scale: 2
     t.datetime "date"
-    t.string "poster"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,4 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_02_172516) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comment_authors", "users"
+  add_foreign_key "comments", "comment_authors"
+  add_foreign_key "comments", "listings"
 end
