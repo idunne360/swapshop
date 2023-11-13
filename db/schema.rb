@@ -19,14 +19,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_12_212525) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text "comment"
+    t.text "commentText"
     t.decimal "offer", precision: 10, scale: 2
     t.integer "listing_id", null: false
-    t.integer "comment_author_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["comment_author_id"], name: "index_comments_on_comment_author_id"
     t.index ["listing_id"], name: "index_comments_on_listing_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "listings", force: :cascade do |t|
@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_12_212525) do
     t.text "description"
     t.decimal "price", precision: 10, scale: 2
     t.datetime "date"
+    t.string "poster"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,6 +52,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_12_212525) do
   end
 
   add_foreign_key "comment_authors", "users"
-  add_foreign_key "comments", "comment_authors"
   add_foreign_key "comments", "listings"
+  add_foreign_key "comments", "users"
 end

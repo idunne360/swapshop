@@ -1,7 +1,7 @@
 <%= form_with model: @comment, url: listing_comments_path(@listing), method: :post do |f| %>
     <div class="field">
-      <%= f.label :comment, "Comment" %>
-      <%= f.text_field :comment %>
+      <%= f.label :commentText, "Comment" %>
+      <%= f.text_field :commentText %>
     </div>
     <div class="field">
       <%= f.label :offer, "Offer" %>

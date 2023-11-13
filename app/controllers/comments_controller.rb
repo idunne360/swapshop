@@ -13,10 +13,13 @@ class CommentsController < ApplicationController
      # build sets the book foreign key automatically
     @comment = @listing.comments.build(create_update_params)
     
-    @comment.comment_author = current_user.comment_author
+    @comment.user = current_user
+    
     if @comment.save
       flash[:notice] = 'Comment successfully created.'
       redirect_to(listing_path(@listing))
+      
+      
     else
       flash[:alert] = 'Failure to create new comment.'
       render :new, status: :unprocessable_entity
@@ -26,7 +29,7 @@ class CommentsController < ApplicationController
 
   private
   def create_update_params
-    params.require(:comment).permit(:comment, :offer)
+    params.require(:comment).permit(:commentText, :offer)
   end
 
 
