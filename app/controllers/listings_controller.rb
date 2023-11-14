@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
       flash[:notice] = "#{@listing.title} successfully posted"
       redirect_to listings_path and return
     else
-      flash[:alert] = "Creation failed"
+      flash[:alert] = "Creation failed, invalid input"
       render 'new', status: :unprocessable_entity
     end
   end
