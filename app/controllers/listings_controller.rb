@@ -27,7 +27,6 @@ class ListingsController < ApplicationController
     end
   end
 
-
   def edit
     @listing = Listing.find(params[:id])
   end
