@@ -1,5 +1,5 @@
 
-<%= @listing.inspect %>
+
 <section id="main" class="container">
 
   <p class="lead">Listing Details for <%= @listing.title %></p>
@@ -17,7 +17,7 @@
 
   <%= link_to "Edit listing", edit_listing_path(@listing), class: "btn btn-info" %>
 
-  <%= button_to "Delete listing", listings_path(@listing), method: :delete, class: "btn btn-warning" %>
+  <%= button_to "Delete listing", listing_path(@listing), method: :delete %>
 
   
 
