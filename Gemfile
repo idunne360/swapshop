@@ -27,6 +27,8 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem "devise"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -53,6 +55,10 @@ group :test do
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem 'simplecov', require: false
+  
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'webdrivers', '~> 4.0', require: true
 end
 
 group :development, :test do
