@@ -1,19 +1,53 @@
-<section>
-<div class="container">
-  <h1>Details for <%= @listing.title %></h1>
+
+<%= @listing.inspect %>
+<section id="main" class="container">
+
+  <p class="lead">Listing Details for <%= @listing.title %></p>
   <dl>
-  <dt>Description</dt>
-  <dd><%= @listing.description %></dd>
-  <dt>Date Posted</dt>
-  <dd><%= @listing.date %></dd>
-  <dt>Price</dt>
-  <dd><%= number_to_currency(@listing.price) %></dd>
-  </dl> 
-  <br>
+    <dt>Title
+      <dd> <%= @listing.title %>
+    <dt>Description
+      <dd> <%= @listing.description %>
+    <dt>Date Posted
+      <dd> <%= @listing.date %>
+    <dt>Price
+      <dd> <%= number_to_currency(@listing.price) %>
+  </dl>
+
 
   <%= link_to "Edit listing", edit_listing_path(@listing), class: "btn btn-info" %>
-  <%= button_to "Delete listing", listing_path(@listing), method: :delete%>
-  <%= link_to "Back to index", listings_path, class: "btn btn-primary" %>
+
+  <%= button_to "Delete listing", listings_path(@listing), method: :delete, class: "btn btn-warning" %>
+
+  
+
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Comments</th>
+        <th>Offer</th>
+        <th>By</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <%= render :partial => 'comments/comment', :collection => @listing.comments || "No comments yet" %>
+      
+    </tbody>
+  </table>
+</div>
+
 <div>
+<%if user_signed_in? %>
+  <%= link_to "Write a new comment", new_listing_comment_path(@listing), class: "btn btn-secondary" %>
+<% end %>
+</div>
+
+<%= link_to "Back to index", listings_path, class: "btn btn-primary" %>
+
+
 </section>
+
 
