@@ -2,25 +2,31 @@
 
 <section id="main" class="container">
 
-  <p class="lead">Listing Details for <%= @listing.title %></p>
-  <dl>
-    <dt>Title
-      <dd> <%= @listing.title %>
-    <dt>Description
-      <dd> <%= @listing.description %>
-    <dt>Date Posted
-      <dd> <%= @listing.date %>
-    <dt>Price
-      <dd> <%= number_to_currency(@listing.price) %>
+  <h1 class="product_title">Listing product details for: <%= @listing.title %></h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th> Title </th>
+        <th> Description </th>
+        <th> Date Posted </th>
+        <th> Price </th>
+      </tr>
+    </thead>
+    <tbody>
+      <td><%= @listing.title %></td>
+      <td><%= @listing.description %></td>
+      <td><%= @listing.date %></td>
+      <td><%= number_to_currency(@listing.price) %></td>
+    </tbody>
+  </table>
+  <br>
+
   </dl>
 
 
-  <%= link_to "Edit listing", edit_listing_path(@listing), class: "btn btn-info" %>
-
-  <%= button_to "Delete listing", listing_path(@listing), method: :delete %>
-
-  
-
+  <%= link_to "Edit listing", edit_listing_path(@listing), class: "btn btn-info inline-button" %>
+  <%= button_to "Delete listing", listing_path(@listing), method: :delete, form: { class: "inline-button" } %>
+  <br>
 
 <div class="container">
   <table class="table">
@@ -33,9 +39,13 @@
     </thead>
     
     <tbody>
-      <%= render :partial => 'comments/comment', :collection => @listing.comments || "No comments yet" %>
-      
+      <% if @listing.comments.present? %>
+        <%= render partial: 'comments/comment', collection: @listing.comments %>
+      <% else %>
+        <tr><td colspan="3">No comments yet</td></tr>
+      <% end %>
     </tbody>
+
   </table>
 </div>
 

@@ -13,3 +13,69 @@
  *= require_tree .
  *= require_self
  */
+
+:root{
+    --def_background: #c21f0c;
+    --listing_background: #f0a70b;
+}
+
+ .rightalign {
+    text-align: right;
+}
+
+ /*for keeping various buttons/links on same line*/
+ .inline-button { 
+    display: inline-block;
+    margin-right: 10px; /* optional, adjust as needed */
+}
+
+ .title {
+    background-color: var(--def_background);
+    color: white;
+    text-align: center;
+    font-size: 48px;
+    font-style: italic;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /*text-decoration: underline;*/
+    border: 2px solid #000;
+}
+
+/*-----------------LISTING STYLIZING-----------------*/
+.product_title{
+    background-color: var(--listing_background);
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-style: italic;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /*text-decoration: underline;*/
+    border: 2px solid #000;
+}
+
+
+/*-----------------TABLE STYLIZING-----------------*/
+ .table {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /*border-spacing: 10px;
+    border: 1px solid #000;*/
+    border-collapse: collapse;
+    text-align: left;
+}
+  
+ /*default styling for table header contents*/
+ .table th {
+    background-color: var(--def_background);
+    color: white;
+    padding: 10px;
+    border-bottom: 1px solid #444444;
+    border-spacing: 10px;
+
+    width: 5%;
+}
+
+/*add stripes to table rows*/
+tr:nth-child(even) {background-color: rgb(209, 207, 207);}
+
+/*highlight on mouseover*/
+tr:hover {background-color: coral;}
+  
