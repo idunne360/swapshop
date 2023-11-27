@@ -21,7 +21,7 @@
   <br>
 
   <%= listing_form.label :price %>
-  <%= listing_form.number_field :price %>
+  <%= listing_form.number_field :price, step: '0.01' %>
   <br>
 
   <%# listing_form.hidden_field :poster, value: current_user.username %>
