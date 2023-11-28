@@ -1,26 +1,36 @@
-
-
 <section id="main" class="container">
 
-  <p class="lead">Listing Details for <%= @listing.title %></p>
-  <dl>
-    <dt>Title
-      <dd> <%= @listing.title %>
-    <dt>Description
-      <dd> <%= @listing.description %>
-    <dt>Date Posted
-      <dd> <%= @listing.date %>
-    <dt>Price
-      <dd> <%= number_to_currency(@listing.price) %>
-  </dl>
+  <h1 class="product_title">Product details page: <%= @listing.title %></h1>
+  <br>
+
+  <%= turbo_frame_tag "show_edit" do %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th> Title </th>
+          <th> Description </th>
+          <th> Date Posted </th>
+          <th> Price </th>
+        </tr>
+      </thead>
+      <tbody>
+        <td><%= @listing.title %></td>
+        <td><%= @listing.description %></td>
+        <td><%= @listing.date %></td>
+        <td><%= number_to_currency(@listing.price) %></td>
+      </tbody>
+    </table>
+    <br>
+
+    </dl>
 
 
-  <%= link_to "Edit listing", edit_listing_path(@listing), class: "btn btn-info" %>
+    <%= link_to "Edit listing", edit_listing_path(@listing), class: "btn btn-info inline-button" %>
+  <%end%>
 
-  <%= button_to "Delete listing", listing_path(@listing), method: :delete %>
-
-  
-
+  <%= button_to "Delete listing", listing_path(@listing), method: :delete, form_class: "inline-button", class: "btn btn-danger" %>  <br>
+  <br>
+  <br>
 
 <div class="container">
   <table class="table">
@@ -33,9 +43,13 @@
     </thead>
     
     <tbody>
-      <%= render :partial => 'comments/comment', :collection => @listing.comments || "No comments yet" %>
-      
+      <% if @listing.comments.present? %>
+        <%= render partial: 'comments/comment', collection: @listing.comments %>
+      <% else %>
+        <tr><td colspan="3">No comments yet</td></tr>
+      <% end %>
     </tbody>
+
   </table>
 </div>
 
@@ -44,6 +58,7 @@
   <%= link_to "Write a new comment", new_listing_comment_path(@listing), class: "btn btn-secondary" %>
 <% end %>
 </div>
+<br>
 
 <%= link_to "Back to index", listings_path, class: "btn btn-primary" %>
 
