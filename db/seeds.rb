@@ -46,7 +46,11 @@ u2 = User.create!(email: 'lcushing@colgate.edu', password: 'colgate13')
 u3 = User.create!(email: 'pmcloughlin@colgate.edu', password: 'colgate13')
 u3 = User.create!(email: 'cperry@colgate.edu', password: 'colgate13')
 
-c = Comment.create(commentText: "Comment", offer: 200)
-c.user = u1
+c1 = Comment.create(commentText: "Need one ASAP!", offer: 200)
+c1.user = u1
+c2 = Comment.create(commentText: "Forget that other guy, I'll pay $50 more", offer: 250)
+c2.user = u3
 
-test.comments << c
+
+test.comments << c1
+test.comments << c2

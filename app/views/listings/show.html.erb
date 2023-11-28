@@ -1,6 +1,6 @@
 <section id="main" class="container">
 
-  <h1 class="product_title">Listing product details for: <%= @listing.title %></h1>
+  <h1 class="product_title">Product details page: <%= @listing.title %></h1>
   <br>
 
   <%= turbo_frame_tag "show_edit" do %>
@@ -29,6 +29,7 @@
   <%end%>
 
   <%= button_to "Delete listing", listing_path(@listing), method: :delete, form_class: "inline-button", class: "btn btn-danger" %>  <br>
+  <br>
   <br>
 
 <div class="container">

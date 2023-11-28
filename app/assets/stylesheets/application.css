@@ -47,12 +47,15 @@
  .title {
     background-color: var(--def_background);
     color: var(--text_color);
+    display: inline-block;
     text-align: center;
+    text-decoration: none;
     font-size: 48px;
     /*font-style: italic;*/
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     /*text-decoration: underline;*/
     border: 2px solid #000;
+    width: 100%;
 }
 
 /*-----------------LISTING STYLIZING-----------------*/
