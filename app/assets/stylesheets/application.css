@@ -14,9 +14,13 @@
  *= require_self
  */
 
+/*-----------------GENERAL STYLIZING-----------------*/
+
 :root{
-    --def_background: #c21f0c;
-    --listing_background: #f0a70b;
+    --def_background: #821019;
+    --alt_background: #E10028;
+    --text_color: white;
+    --alt_text_color: #D2D4D6;
 }
 
  .rightalign {
@@ -29,12 +33,23 @@
     margin-right: 10px; /* optional, adjust as needed */
 }
 
+ .btn{
+    background-color: var(--alt_background);
+    color: var(--text_color);
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 15px; /* Adjust padding to your liking */
+    text-decoration: none;
+}
+
  .title {
     background-color: var(--def_background);
-    color: white;
+    color: var(--text_color);
     text-align: center;
     font-size: 48px;
-    font-style: italic;
+    /*font-style: italic;*/
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     /*text-decoration: underline;*/
     border: 2px solid #000;
@@ -42,14 +57,18 @@
 
 /*-----------------LISTING STYLIZING-----------------*/
 .product_title{
-    background-color: var(--listing_background);
-    color: white;
+    background-color: var(--text_color);
+    color: var(--def_background);
     text-align: center;
     font-size: 24px;
-    font-style: italic;
+    /*font-style: italic;*/
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     /*text-decoration: underline;*/
     border: 2px solid #000;
+}
+
+.product_table_stripes{
+    td:nth-child(even) {background-color: var(--alt_text_color);}
 }
 
 
@@ -59,15 +78,15 @@
     /*border-spacing: 10px;
     border: 1px solid #000;*/
     border-collapse: collapse;
-    text-align: left;
+    text-align: center;
 }
   
  /*default styling for table header contents*/
  .table th {
     background-color: var(--def_background);
-    color: white;
+    color: var(--text_color);
     padding: 10px;
-    border-bottom: 1px solid #444444;
+    border-bottom: 1px solid #000;
     border-spacing: 10px;
 
     width: 5%;
