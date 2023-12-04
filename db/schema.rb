@@ -34,7 +34,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_12_212525) do
     t.text "description"
     t.decimal "price", precision: 10, scale: 2
     t.datetime "date"
-    t.string "poster"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
