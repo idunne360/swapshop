@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/figs/swapshop/app/models/user.rb": {
+      "/mnt/c/Users/Carmen Perry/Desktop/Colgate Stuff/Semester 8/COSC415 Software Engineering/Project/swapshop/app/models/user.rb": {
         "lines": [
           1,
           null,
@@ -14,26 +14,26 @@
           null
         ]
       },
-      "/home/figs/swapshop/app/models/application_record.rb": {
+      "/mnt/c/Users/Carmen Perry/Desktop/Colgate Stuff/Semester 8/COSC415 Software Engineering/Project/swapshop/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/figs/swapshop/app/helpers/application_helper.rb": {
+      "/mnt/c/Users/Carmen Perry/Desktop/Colgate Stuff/Semester 8/COSC415 Software Engineering/Project/swapshop/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/figs/swapshop/app/helpers/comments_helper.rb": {
+      "/mnt/c/Users/Carmen Perry/Desktop/Colgate Stuff/Semester 8/COSC415 Software Engineering/Project/swapshop/app/helpers/comments_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/figs/swapshop/app/models/comment_author.rb": {
+      "/mnt/c/Users/Carmen Perry/Desktop/Colgate Stuff/Semester 8/COSC415 Software Engineering/Project/swapshop/app/models/comment_author.rb": {
         "lines": [
           1,
           1,
@@ -42,7 +42,7 @@
           null
         ]
       },
-      "/home/figs/swapshop/app/models/comment.rb": {
+      "/mnt/c/Users/Carmen Perry/Desktop/Colgate Stuff/Semester 8/COSC415 Software Engineering/Project/swapshop/app/models/comment.rb": {
         "lines": [
           1,
           1,
@@ -51,32 +51,35 @@
           null
         ]
       },
-      "/home/figs/swapshop/app/models/listing.rb": {
+      "/mnt/c/Users/Carmen Perry/Desktop/Colgate Stuff/Semester 8/COSC415 Software Engineering/Project/swapshop/app/models/listing.rb": {
         "lines": [
           1,
           null,
           1,
           null,
           1,
+          1,
+          1,
+          null,
           1,
           1,
           null,
           null,
           1,
           0,
-          null,
-          null,
-          1,
-          0,
           0,
           null,
-          0,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null,
           null
         ]
       },
-      "/home/figs/swapshop/app/controllers/listings_controller.rb": {
+      "/mnt/c/Users/Carmen Perry/Desktop/Colgate Stuff/Semester 8/COSC415 Software Engineering/Project/swapshop/app/controllers/listings_controller.rb": {
         "lines": [
           1,
           1,
@@ -85,6 +88,7 @@
           0,
           null,
           4,
+          null,
           null,
           null,
           null,
@@ -107,16 +111,43 @@
           null,
           null,
           null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
           null
         ]
       },
-      "/home/figs/swapshop/app/controllers/application_controller.rb": {
+      "/mnt/c/Users/Carmen Perry/Desktop/Colgate Stuff/Semester 8/COSC415 Software Engineering/Project/swapshop/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null
         ]
       }
     },
-    "timestamp": 1699930964
+    "timestamp": 1701716925
   }
 }

@@ -15,6 +15,33 @@ RSpec.describe Listing, type: :model do
         expect(listing.errors).to be_empty
         #expect(flash[:notice]).to eq("New Listing successfully posted")
       end
+
+      it "searches by product title" do
+        listing_bunker = Listing.create!(
+          title: "Cold War-era bunker",
+          description: "Located two miles under the surface",
+          price: 1000000.0, #1 million
+          date: Date.today
+        )
+        listing_blimp = Listing.create!(
+          title: "Industrial blimp",
+          description: "Reasonably priced, in need of structural repairs",
+          price: 50000.0,
+          date: Date.today
+        )
+        expect(Listing.title_search("bunker")).to eq(listing_bunker)
+        expect(Listing.title_search("Bunker")).to eq(listing_bunker)
+        expect(Listing.title_search("BUNKER")).to eq(listing_bunker)
+        expect(Listing.title_search("cold war")).to eq(listing_bunker)
+        expect(Listing.title_search("blimp")).to eq(listing_blimp)
+        expect(Listing.title_search("BLIMP")).to eq(listing_blimp)
+
+      end
+
+      it "sorts by product title" do
+
+      end
+
     end
 
     context "with invalid attributes" do

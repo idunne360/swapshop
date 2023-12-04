@@ -14,10 +14,10 @@
   <table class="table">
     <thead>
       <tr>
-        <th><%= link_to 'Title', listings_path(sort: 'title') %>
-        <th><%= link_to 'Price', listings_path(sort: 'price') %>
-        <th>Description
-        <th><%= link_to 'Date Posted', listings_path(sort: 'date') %>
+        <th><%= link_to 'Title', listings_path(sort: 'title'), class: 'index_header' %>
+        <th><%= link_to 'Price', listings_path(sort: 'price'), class: 'index_header' %>
+        <th class='index_header'>Description
+        <th><%= link_to 'Date Posted', listings_path(sort: 'date'), class: 'index_header' %>
       </tr>
     </thead>
     <tbody>

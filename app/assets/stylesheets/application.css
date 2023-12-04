@@ -16,6 +16,10 @@
 
 /*-----------------GENERAL STYLIZING-----------------*/
 
+/*
+These are the default stylings for the whole page!
+Play with page-wide settings below
+*/
 :root{
     --def_background: #821019;
     --alt_background: #E10028;
@@ -56,6 +60,17 @@
     /*text-decoration: underline;*/
     border: 2px solid #000;
     width: 100%;
+}
+
+ .index_header {
+    background-color: var(--def_background);
+    color: var(--text_color);
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px; /* Adjust padding to your liking */
+    text-decoration: underline;
+
 }
 
 /*-----------------LISTING STYLIZING-----------------*/
