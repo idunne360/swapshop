@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_one :comment_author
   has_many :comments
+  has_many :listings
 end

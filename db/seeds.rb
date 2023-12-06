@@ -40,7 +40,7 @@ Listing.create!(
     poster: "Jim"
 )
 
-u0 = User.create!(email: 'admin@colgate.edu', password: 'colgate13')
+u0 = User.create!(email: 'admin@colgate.edu', password: 'colgate13', admin: true)
 u1 = User.create!(email: 'bcasey@colgate.edu', password: 'colgate13')
 u2 = User.create!(email: 'lcushing@colgate.edu', password: 'colgate13')
 u3 = User.create!(email: 'pmcloughlin@colgate.edu', password: 'colgate13')
