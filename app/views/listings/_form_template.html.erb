@@ -25,7 +25,7 @@
   <br>
 
   <%# listing_form.hidden_field :poster, value: current_user.username %>
-  <%= listing_form.hidden_field :date, value: Time.now %>
+  <%= listing_form.hidden_field :date, value: DateTime.now %>
 
 
   <%= listing_form.submit %>

@@ -8,35 +8,35 @@ Listing.create!(
     title: "The biggest box",
     price: 499.99,
     description: "For storing huge quantities of whatever",
-    date: DateTime.new(2023,12,23,22,35,0),
+    date: DateTime.new(2023,12,2,22,35,0),
     poster: "Jim"
 )
 Listing.create!(
     title: "A big box",
     price: 199.99,
     description: "For storing above-average quantities of whatever",
-    date: DateTime.new(2023,12,23,22,35,0),
+    date: DateTime.new(2023,12,2,22,35,0),
     poster: "Jim"
 )
 Listing.create!(
     title: "A box",
     price: 99.99,
     description: "For storing average quantities of whatever",
-    date: DateTime.new(2023,12,27,22,35,0),
+    date: DateTime.new(2023,12,2,22,35,0),
     poster: "Jim"
 )
 Listing.create!(
     title: "A small box",
     price: 49.99,
     description: "For storing small quantities of whatever",
-    date: DateTime.new(2023,12,27,22,35,0),
+    date: DateTime.new(2023,12,2,22,35,0),
     poster: "Jim"
 )
 Listing.create!(
     title: "The smallest box",
     price: 9.99,
     description: "For storing near-imperceptible quantities of whatever",
-    date: DateTime.new(2023,12,27,22,35,0),
+    date: DateTime.new(2023,12,2,22,35,0),
     poster: "Jim"
 )
 

@@ -16,7 +16,7 @@
       <tbody>
         <td><%= @listing.title %></td>
         <td><%= @listing.description %></td>
-        <td><%= @listing.date %></td>
+        <td><%= time_ago_in_words(@listing.date) + " ago" %></td>
         <td><%= number_to_currency(@listing.price) %></td>
       </tbody>
     </table>
