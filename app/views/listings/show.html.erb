@@ -9,6 +9,7 @@
         <tr>
           <th> Title </th>
           <th> Description </th>
+          <th> Posted By </th>
           <th> Date Posted </th>
           <th> Price </th>
         </tr>
@@ -16,6 +17,7 @@
       <tbody>
         <td><%= @listing.title %></td>
         <td><%= @listing.description %></td>
+        <td><%= @listing.user.email %></td>
         <td><%= time_ago_in_words(@listing.date) + " ago" %></td>
         <td><%= number_to_currency(@listing.price) %></td>
       </tbody>
