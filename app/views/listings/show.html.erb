@@ -24,11 +24,14 @@
 
     </dl>
 
-
-    <%= link_to "Edit listing", edit_listing_path(@listing), class: "btn btn-info inline-button" %>
+    <% if current_user && (current_user == @listing.user || current_user.admin?) %>
+      <%= link_to "Edit listing", edit_listing_path(@listing), class: "btn btn-info inline-button" %>
+    <% end %>
   <%end%>
-
-  <%= button_to "Delete listing", listing_path(@listing), method: :delete, form_class: "inline-button", class: "btn btn-danger" %>  <br>
+  <% if current_user && (current_user == @listing.user || current_user.admin?) %>
+    <%= button_to "Delete listing", listing_path(@listing), method: :delete, form_class: "inline-button", class: "btn btn-danger" %>  <br>
+  <% end %>
+    
   <br>
   <br>
 
