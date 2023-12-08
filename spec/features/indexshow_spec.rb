@@ -3,18 +3,19 @@ require 'rails_helper'
 RSpec.feature "Indexshows", type: :feature do
   context "index" do
     before (:each) do 
-      Listing.create!(title: "iPad", price: 350.00, description: "used", date: DateTime.new(2023,10,15,22,35,0))
-      Listing.create!(title: "PS4", price: 150.00, description: "heavily used", date: DateTime.new(2023,10,15,22,35,0))
+      u4 = User.create!(email: 'cperry@colgate.edu', password: 'colgate13')
+      Listing.create!(title: "iPad", price: 350.00, description: "used", date: DateTime.new(2023,10,15,22,35,0), user: u4)
+      Listing.create!(title: "PS4", price: 150.00, description: "heavily used", date: DateTime.new(2023,10,15,22,35,0), user: u4)
     end
 
     it "should route correctly from the root" do
       visit '/'
-      expect(page.text).to match /PS4.*iPad/
+      expect(page.text).to match /iPad.*PS4/
     end
 
     it "should show listings with default sort order" do
       visit listings_path
-      expect(page.text).to match /PS4.*iPad/
+      expect(page.text).to match /iPad.*PS4/
     end
 
 
@@ -27,8 +28,9 @@ RSpec.feature "Indexshows", type: :feature do
 
   context "show" do
     before (:each) do 
-      Listing.create!(title: "iPad", price: 350.00, description: "used", date: DateTime.new(2023,10,15,22,35,0))
-      Listing.create!(title: "PS4", price: 150.00, description: "heavily used", date: DateTime.new(2023,10,15,22,35,0))
+      u4 = User.create!(email: 'cperry@colgate.edu', password: 'colgate13')
+      Listing.create!(title: "iPad", price: 350.00, description: "used", date: DateTime.new(2023,10,15,22,35,0), user: u4)
+      Listing.create!(title: "PS4", price: 150.00, description: "heavily used", date: DateTime.new(2023,10,15,22,35,0), user: u4)
     end
 
     it "should show listing details" do
