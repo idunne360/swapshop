@@ -44,6 +44,9 @@
         <th>Comments</th>
         <th>Offer</th>
         <th>By</th>
+        <% if current_user == @listing.user %>
+          <th>Actions</th>
+        <% end %>
       </tr>
     </thead>
     
@@ -53,10 +56,12 @@
       <td><%= comment.commentText %></td>
       <td>$<%= comment.offer %></td>
       <td><%= comment.user.email %></td>
-      <td>
-        <% if current_user == @listing.user && !comment.accepted? %>
-          <%= button_to "Accept Offer", accept_offer_listing_path(@listing, comment), method: :patch, class: "btn btn-accept-offer" %>
-        <% end %>
+      
+      <% if current_user == @listing.user && !comment.accepted? %>
+        <td>
+        <%= button_to "Accept Offer", accept_offer_listing_path(@listing, comment), method: :patch, class: "btn btn-accept-offer" %>
+        </td>
+      <% end %>
       </td>
     </tr>
   <% end %>
