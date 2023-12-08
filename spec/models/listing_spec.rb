@@ -16,6 +16,7 @@ RSpec.describe Listing, type: :model do
         #expect(flash[:notice]).to eq("New Listing successfully posted")
       end
 
+      #Should this be under a different "describe" header?
       it "searches by product title" do
         listing_bunker = Listing.create!(
           title: "Cold War-era bunker",
@@ -29,16 +30,35 @@ RSpec.describe Listing, type: :model do
           price: 50000.0,
           date: Date.today
         )
-        expect(Listing.title_search("bunker")).to eq(listing_bunker)
-        expect(Listing.title_search("Bunker")).to eq(listing_bunker)
-        expect(Listing.title_search("BUNKER")).to eq(listing_bunker)
-        expect(Listing.title_search("cold war")).to eq(listing_bunker)
-        expect(Listing.title_search("blimp")).to eq(listing_blimp)
-        expect(Listing.title_search("BLIMP")).to eq(listing_blimp)
+        expect(Listing.title_search("bunker")).to include(listing_bunker)
+        expect(Listing.title_search("Bunker")).to include(listing_bunker)
+        expect(Listing.title_search("BUNKER")).to include(listing_bunker)
+        expect(Listing.title_search("cold war")).to include(listing_bunker)
+        expect(Listing.title_search("blimp")).to include(listing_blimp)
+        expect(Listing.title_search("BLIMP")).to include(listing_blimp)
 
       end
 
       it "sorts by product title" do
+        listing_bunker = Listing.create!(
+          title: "Cold War-era bunker",
+          description: "Located two miles under the surface",
+          price: 1000000.0, #1 million
+          date: Date.today
+        )
+        listing_blimp = Listing.create!(
+          title: "Industrial blimp",
+          description: "Reasonably priced, in need of structural repairs",
+          price: 50000.0,
+          date: Date.today
+        )
+        listing_PS4 = Listing.create!(
+          title: "PS4",
+          description: "Time passes fast - PS4 is now last-gen technology",
+          price: 350.0,
+          date: Date.today
+        )
+        expect(Listing.sorted_by(nil)).to include(listing_bunker)
 
       end
 
