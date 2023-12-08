@@ -44,6 +44,11 @@
     text-decoration: none;
 }
 
+ .btn-accept-offer {
+    background-color: #28a745;
+    color: #fff;
+}
+
  .title {
     background-color: var(--def_background);
     color: var(--text_color);

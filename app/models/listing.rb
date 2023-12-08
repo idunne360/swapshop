@@ -16,10 +16,4 @@ class Listing < ApplicationRecord
       order(field)
     end
 
-    #def self.search_by_name(search_term)
-    #  where('lower(name) LIKE ?', "%#{search_term.downcase}%")
-    #end
-
-
-
 end
