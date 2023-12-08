@@ -24,6 +24,12 @@ RSpec.feature "Indexshows", type: :feature do
       click_on "iPad"
       expect(page.current_path).to eq(listing_path(1))
     end
+
+    it "should search listings by title params" do
+      visit listings_path(title_search: "PS4")
+      expect(page.text).to match /.*PS4/
+
+    end
   end
 
   context "show" do
