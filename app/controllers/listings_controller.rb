@@ -50,6 +50,15 @@ class ListingsController < ApplicationController
     redirect_to listings_path
   end
 
+  def accept_offer
+    @listing = Listing.find(params[:id])
+    @comment = @listing.comments.find(params[:comment_id])
+    @comment.update(accepted: true)
+    @listing.destroy
+    flash[:notice] = "Offer accepted. Listing sold!"
+    redirect_to listings_path
+  end
+
   private
   def create_update_params
     params.require(:listing).permit(:title, :price, :description, :date, :poster)

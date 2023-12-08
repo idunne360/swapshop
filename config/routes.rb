@@ -6,10 +6,11 @@ Rails.application.routes.draw do
 
   resources :listings do
     resources :comments, only: %i[new create]
+
+    member do
+      patch 'accept_offer/:comment_id', to: 'listings#accept_offer', as: 'accept_offer'
+    end
   end
   root to: "listings#index"
 
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

@@ -17,7 +17,7 @@
       <tbody>
         <td><%= @listing.title %></td>
         <td><%= @listing.description %></td>
-        <td><%= @listing.user.email %></td>
+        <td><%= @listing.user&.email %></td>
         <td><%= time_ago_in_words(@listing.date) + " ago" %></td>
         <td><%= number_to_currency(@listing.price) %></td>
       </tbody>
@@ -48,11 +48,18 @@
     </thead>
     
     <tbody>
-      <% if @listing.comments.present? %>
-        <%= render partial: 'comments/comment', collection: @listing.comments %>
-      <% else %>
-        <tr><td colspan="3">No comments yet</td></tr>
-      <% end %>
+      <% @listing.comments.each do |comment| %>
+    <tr>
+      <td><%= comment.commentText %></td>
+      <td>$<%= comment.offer %></td>
+      <td><%= comment.user.email %></td>
+      <td>
+        <% if current_user == @listing.user && !comment.accepted? %>
+          <%= button_to "Accept Offer", accept_offer_listing_path(@listing, comment), method: :patch, class: "btn btn-accept-offer" %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
     </tbody>
 
   </table>
