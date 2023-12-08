@@ -25,6 +25,10 @@
     </tbody>
   </table>
   <br>
-  <%= link_to "Post new listing", new_listing_path, class: "btn btn-secondary" %>
+  <% if current_user %>
+    <%= link_to "Post new listing", new_listing_path, class: "btn btn-secondary" %>
+  <% else %>
+    <%= link_to "Post new listing", "#", class: "btn btn-secondary disabled", disabled: true, onclick: "alert('Please sign in to post a new listing.')" %>
+  <% end %>
   </div>
 </section>
